@@ -139,7 +139,40 @@ $(document).ready(function() {
         generate();
         $('#content').html('');
         $('#buttonP').html('');
+        var cusID;
+        var docRef = await db.collection("Orders").doc(id);
+        await docRef.get().then(function(doc) {
+            if (doc.exists) {
+                var orderData = doc.data();
+                if (orderData != null) {
+                    cusID = orderData['uid'];
+                }
+            } else {
+                // doc.data() will be undefined in this ca
+                console.log("cusId");
+            }
 
+        });
+        var personName, tokenID;
+        var docRef1 = await db.collection("Person").doc(cusID);
+        await docRef1.get().then(function(doc) {
+            if (doc.exists) {
+                var personData = doc.data();
+                if (personData != null) {
+                    personName = personData['Name'];
+                    tokenID = personData['tokenID'];
+                }
+            } else {
+                // doc.data() will be undefined in this ca
+                console.log("person");
+            }
+
+        });
+        if (tokenID != null && personName != null) {
+            var api = new Firebase_Messaging();
+            var body = "Hi! " + personName + ", Thanks for placing the order. Your order is collected from the counter. We hope you will enjoy this meal.";
+            api.sendMsg("Order Delivered!", body, "eFjShBqRQ9OdbuZMXFQp1d:APA91bHoPzstd6Yxu6WF_SNzG8HOfF3siWm5zEAmoDlu89_RoV_UzwAK19gQA2YrQc1fAPUAPs3aabPwvu8ixonDfEjGPLKbWikFEKnH9mXoGmjnMCjf8ExGBorJE2z9tEqg_MnRyEMZ");
+        }
     });
 
     $(document).on('click', '#btnGenerate', async function() {
