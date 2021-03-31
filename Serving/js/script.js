@@ -133,7 +133,7 @@ $(document).ready(function() {
         var id = $(this).data("id7");
         // var db = firebase.firestore();
 
-        await db.collection("Orders").doc(id).update({ status: "delivered" });
+        await db.collection("Orders").doc(id).update({ status: "past" });
         $('#barcodeDiv').toggle();
         $('#barcodeDiv').html(barcodeImg);
         generate();
