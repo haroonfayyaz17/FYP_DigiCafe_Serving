@@ -171,7 +171,7 @@ $(document).ready(function() {
         if (tokenID != null && personName != null) {
             var api = new Firebase_Messaging();
             var body = "Hi! " + personName + ", Thanks for placing the order. Your order is collected from the counter. We hope you will enjoy this meal.";
-            api.sendMsg("Order Delivered!", body, "eFjShBqRQ9OdbuZMXFQp1d:APA91bHoPzstd6Yxu6WF_SNzG8HOfF3siWm5zEAmoDlu89_RoV_UzwAK19gQA2YrQc1fAPUAPs3aabPwvu8ixonDfEjGPLKbWikFEKnH9mXoGmjnMCjf8ExGBorJE2z9tEqg_MnRyEMZ");
+            api.sendMsg("Order Delivered!", body, tokenID);
         }
     });
 
