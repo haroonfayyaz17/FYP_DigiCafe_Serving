@@ -10,6 +10,7 @@ $(document).ready(function() {
     barcodeImg += "width=\"300\" ";
     barcodeImg += "height=\"300\" />";
 
+    console.log('changes');
     $('#barcodeDiv').html(barcodeImg);
 
 
