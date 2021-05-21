@@ -3,15 +3,18 @@
 // document.addEventListener('DOMContentLoaded', event => {
 $(document).ready(function() {
     var funID;
-    var barcodeImg = "<img id='barcode' ";
-    barcodeImg += "src=\"https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=300x300\" ";
-    barcodeImg += "alt=\"barcode\" ";
-    barcodeImg += "title=\"HELLO\" ";
-    barcodeImg += "width=\"300\" ";
-    barcodeImg += "height=\"300\" />";
+    var tags = new MyTags();
+    var barcodeImg = tags.getBarcodeTag()
 
-    console.log('changes');
     $('#barcodeDiv').html(barcodeImg);
+
+
+    var oDB = new OrderDBController();
+
+
+    generate();
+
+    oDB.checkSnapshot(funID);
 
 
     $(document).on('click', '#btnDeliver', async function() {
@@ -23,7 +26,7 @@ $(document).ready(function() {
         $('#content').html('');
         $('#buttonP').html('');
         var cusID = $(this).data("id8");
-        oDB.sendNotificationToUser(', Thanks for placing the order. Your order is collected from the counter. We hope you will enjoy this meal.', 'Order Delivered!', cusID);
+        oDB.sendNotificationToUser(' Thanks for placing the order. Your order is collected from the counter. We hope you will enjoy this meal.', 'Order Delivered!', cusID);
     });
 
     $(document).on('click', '#btnGenerate', async function() {
@@ -62,13 +65,5 @@ $(document).ready(function() {
             qrProcedure();
         }, 30 * 1000);
     }
-
-
-    var oDB = new OrderDBController();
-
-
-    generate();
-
-    oDB.checkSnapshot(funID);
 
 });
