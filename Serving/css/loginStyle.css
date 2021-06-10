@@ -1,0 +1,90 @@
+* {
+    font-size: 18px;
+}
+
+.container {
+    max-width: 500px;
+    height: 700px;
+    margin: auto;
+    top: 85%;
+    left: 50%;
+}
+
+.card {
+    /* position: relative; */
+    background: #fff;
+    height: 600px;
+    width: 700px;
+    padding: 2%;
+    margin: 5%;
+    box-shadow: 0px 8px 30px -14px rgba(0, 0, 0, 0.7);
+}
+
+.logo {
+    height: 130px;
+    width: 120px;
+}
+
+.logoTitle {
+    margin-bottom: 30px;
+}
+
+.myForm {
+    position: relative;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.link-danger {
+    color: #bd752a;
+    margin-left: 230px;
+}
+
+.link-danger:hover {
+    color: #bd752a;
+    opacity: 0.8;
+}
+
+.login {
+    background-color: #bd752a;
+    color: #ffff;
+    width: 230px;
+    border-radius: 25px;
+    padding: 10px;
+    border: none;
+    margin-top: 20px;
+}
+
+.login:hover {
+    opacity: 0.8;
+}
+
+.fas {
+    color: #bd752a;
+    height: 30px;
+    width: 45px;
+}
+
+.fa {
+    color: #bd752a;
+}
+
+.toggle-password {
+    margin-left: -30px
+}
+
+.myInput {
+    width: 350px;
+    margin-top: 15px;
+    border-radius: 25px;
+    padding: 10px;
+    padding-left: 50px;
+    border: none;
+    box-shadow: 0px 8px 20px -14px rgba(0, 0, 0, 0.7);
+}
+
+.myInput:focus {
+    border: 1px solid #bd752a;
+    outline-offset: 0px;
+    outline: none;
+}

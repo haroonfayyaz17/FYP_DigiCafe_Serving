@@ -2,11 +2,16 @@
 // import 'firebase/firestore';
 // document.addEventListener('DOMContentLoaded', event => {
 $(document).ready(function() {
+
+    function addBarcode() {
+        $('#barcodeDiv').html(barcodeImg);
+    }
+
     var funID;
     var tags = new MyTags();
     var barcodeImg = tags.getBarcodeTag()
 
-    $('#barcodeDiv').html(barcodeImg);
+
 
 
     var oDB = new OrderDBController();
