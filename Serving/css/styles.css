@@ -113,6 +113,10 @@ tfoot {
     font-size: 60px;
 }
 
+.popover-content {
+    font-size: 20px;
+}
+
 #buttonP {
     margin: auto;
     /* margin-top: 60px; */

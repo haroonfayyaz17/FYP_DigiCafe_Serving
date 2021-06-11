@@ -4,7 +4,7 @@ function getHeader(page) {
         '<div class="row">' +
         getLogo() + getTitle();
     if (page) {
-        myvar += '<i class="fas fa-sign-out-alt signOut" data-toggle="tooltip" data-html="true" data-placement="top" title="Sign Out"></i>';
+        myvar += '<i class="fas fa-sign-out-alt signOut" data-toggle="popover" data-trigger="hover" aria-hidden="true" data-placement="bottom" data-content="Sign Out"></i>';
     }
     myvar += rest();
     document.write(myvar)

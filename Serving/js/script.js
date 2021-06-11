@@ -82,6 +82,14 @@ $(document).ready(function() {
         return result;
     }
 
+
+
+    $(function() {
+        $('[data-toggle="popover"]').popover({
+            container: 'body'
+        });
+    });
+
     function generateBarCode(id) {
         var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + id + '&amp;size=300x300';
         $('#barcode').attr('src', url);
