@@ -11,10 +11,16 @@ class FirebaseConfig {
         };
 
         firebase.initializeApp(firebaseConfig);
+
+        this.auth = firebase.auth();
         this.db = firebase.firestore();
     }
 
-    getFirebaseInstance() {
+    getFirestoreInstance() {
         return this.db;
+    }
+
+    getFirebaseAuth() {
+        return this.auth;
     }
 }

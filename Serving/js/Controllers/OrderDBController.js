@@ -2,7 +2,7 @@ class OrderDBController {
 
     constructor() {
         var config = new FirebaseConfig();
-        this.db = config.getFirebaseInstance();
+        this.db = config.getFirestoreInstance();
         this.barcodes = [];
 
         this.loadingGif = '<img src="images/loader.gif" width="300" height="300" alt="loader"></img>';

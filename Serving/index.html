@@ -6,50 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="css/loginStyle.css">
     <title>Digi Cafe Serving</title>
 </head>
 
 <body>
-    <div class="header" id="header">
+    <script type="text/javascript" src="js/View/header.js"></script>
+    <div class="container">
+        <div id="result"></div>
         <div class="row">
-            <div class="img-circle">
-                <img src="images/logo 2.png" alt="logo">
+            <div class="card">
+                <form class="myForm ">
+                    <img src="../images/logo 2.png" class="logo" alt="logo">
+                    <h1 class="logoTitle">Digi Café</h1>
+                    <div class="alert alert-danger" role="alert"></div>
+                    <div class="form-group">
+                        <i class="fas fa-envelope"></i>
+                        <input class="myInput" type="email" placeholder="Email" id="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-key"></i>
+                        <input class="myInput" id="signInPswd" type="password" placeholder="Password" id="pass" required>
+                        <span toggle="#password-field" class="fa fa-fw fa-eye toggle-password">
+                            </div>
+                            <div class="form-group">
+                                <a href="forgotPassword.html" class="link-danger">Forgot Password?</a>
+                            </div>
+                            <input type="button" id="signIn" class="login" value="Sign In">
+                        </form>
+                    </div>
+                </div>
             </div>
-            <h1>Digi Café Serving</h1>
-        </div>
-        <br>
-        <h4>Digitalized Cafe System to fulfil your needs! HAPPY ORDERING!!</h4>
-    </div>
-    <br>
-    <div class="container-fluid container">
-        <div class="row" id="content">
-            <script src="js/View/Login.js"></script>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row" id="buttonP"></div>
-    </div>
-    <div id="barcodeDiv"></div>
-    <br>
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" defer src="js/View/MyTags.js"></script>
-    <script type="text/javascript" defer src="js/Model/FoodItem.js"></script>
-    <script type="text/javascript" defer src="js/Model/Order.js"></script>
-    <script type="text/javascript" defer src="js/View/Table.js"></script>
-    <script type="text/javascript" defer src="js/FirebaseConfig.js"></script>
-    <script type="text/javascript" defer src="js/Controllers/Firebase_Messaging.js"></script>
-    <script type="text/javascript" defer src="js/Controllers/OrderDBController.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/LoginScript.js"></script>
-
-</body>
-
-</html>
+            <!-- <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script> -->
+            <script src="/node_modules/firebase/firebase-app.js"></script>
+            <script src="/node_modules/firebase/firebase-auth.js"></script>
+            <script src="/node_modules/firebase/firebase-firestore.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+            <script type="text/javascript" defer src="js/FirebaseConfig.js"></script>
+            <script type="module" src="js/loginScript.js"></script>
+        </body>
+    </html>

@@ -1,25 +1,46 @@
-// import firebase from 'firebase/app';
 // import 'firebase/firestore';
 // document.addEventListener('DOMContentLoaded', event => {
+// import firebase from "../node_modules/firebase/app";
+// import "../node_modules/firebase/auth";
 $(document).ready(function() {
+    var funID;
+    var tags;
+    var oDB;
+
+    var login = localStorage.getItem('userLogin');
+    if (login === 'login') {
+
+        tags = new MyTags();
+        var barcodeImg = tags.getBarcodeTag()
+        addBarcode();
+
+        oDB = new OrderDBController();
+
+
+        generate();
+
+        oDB.checkSnapshot(funID);
+        var object = JSON.parse(localStorage.getItem("expires"));
+        var expire = new Date(object.timestamp);
+        var now = new Date();
+        if (now >= expire) {
+            localStorage.removeItem("userLogin");
+            localStorage.removeItem("expires");
+            window.open("index.html", "_self");
+        }
+
+    } else {
+        window.open("index.html", "_self");
+    }
 
     function addBarcode() {
         $('#barcodeDiv').html(barcodeImg);
     }
 
-    var funID;
-    var tags = new MyTags();
-    var barcodeImg = tags.getBarcodeTag()
 
 
 
 
-    var oDB = new OrderDBController();
-
-
-    generate();
-
-    oDB.checkSnapshot(funID);
 
 
     $(document).on('click', '#btnDeliver', async function() {
