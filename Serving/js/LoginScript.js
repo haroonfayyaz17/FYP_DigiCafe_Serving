@@ -15,8 +15,7 @@ $(document).ready(function() {
 
     $('#signIn').click(function() {
         $('.alert').hide();
-        localStorage.removeItem("userLogin");
-        localStorage.removeItem("expires");
+        removeStorage();
         var email = $('#Email').val();
         if (!validateEmail(email)) {
             displayAlert('Invalid Email');
@@ -26,6 +25,8 @@ $(document).ready(function() {
         config.getFirebaseAuth().signInWithEmailAndPassword(email, password)
             .then((userCredential) => {
                 localStorage.setItem("userLogin", "login");
+                localStorage.setItem("email", email);
+
                 //This authentication key will expire in 1 hour.
                 var today = new Date();
                 today.setMinutes(today.getMinutes() + 20);
@@ -48,6 +49,11 @@ $(document).ready(function() {
 
     });
 
+    function removeStorage() {
+        localStorage.removeItem("email");
+        localStorage.removeItem("userLogin");
+        localStorage.removeItem("expires");
+    }
     $('#resetPswd').click(function() {
         $('.alert').hide();
 

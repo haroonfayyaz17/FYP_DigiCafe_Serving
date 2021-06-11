@@ -105,6 +105,14 @@ tfoot {
     font-size: 25px;
 }
 
+.signOut {
+    /*float: right;*/
+    /*margin-left: 300px;*/
+    position: absolute;
+    right: 30px;
+    font-size: 60px;
+}
+
 #buttonP {
     margin: auto;
     /* margin-top: 60px; */

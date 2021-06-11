@@ -9,7 +9,13 @@ $(document).ready(function() {
 
     var login = localStorage.getItem('userLogin');
     if (login === 'login') {
-
+        var object = JSON.parse(localStorage.getItem("expires"));
+        var expire = new Date(object.timestamp);
+        var now = new Date();
+        if (now >= expire) {
+            removeStorage();
+            window.open("index.html", "_self");
+        }
         tags = new MyTags();
         var barcodeImg = tags.getBarcodeTag()
         addBarcode();
@@ -20,17 +26,16 @@ $(document).ready(function() {
         generate();
 
         oDB.checkSnapshot(funID);
-        var object = JSON.parse(localStorage.getItem("expires"));
-        var expire = new Date(object.timestamp);
-        var now = new Date();
-        if (now >= expire) {
-            localStorage.removeItem("userLogin");
-            localStorage.removeItem("expires");
-            window.open("index.html", "_self");
-        }
+
 
     } else {
         window.open("index.html", "_self");
+    }
+
+    function removeStorage() {
+        localStorage.removeItem("email");
+        localStorage.removeItem("userLogin");
+        localStorage.removeItem("expires");
     }
 
     function addBarcode() {
@@ -38,7 +43,10 @@ $(document).ready(function() {
     }
 
 
-
+    $(document).on('click', '.signOut', async function() {
+        removeStorage();
+        window.open("index.html", "_self");
+    });
 
 
 
