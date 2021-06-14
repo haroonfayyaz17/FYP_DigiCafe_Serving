@@ -2,13 +2,14 @@
 // document.addEventListener('DOMContentLoaded', event => {
 // import firebase from "../node_modules/firebase/app";
 // import "../node_modules/firebase/auth";
-$(document).ready(function() {
+$(document).ready(async function() {
     var funID;
     var tags;
     var oDB;
 
     var login = localStorage.getItem('userLogin');
     if (login === 'login') {
+
         var object = JSON.parse(localStorage.getItem("expires"));
         var expire = new Date(object.timestamp);
         var now = new Date();
@@ -16,13 +17,17 @@ $(document).ready(function() {
             removeStorage();
             window.open("index.html", "_self");
         }
+
+        var email = localStorage.getItem("email");
+
+        oDB = new OrderDBController();
+        await oDB.getPersonInfo(email);
+
+
+        updateHeader(oDB.name);
         tags = new MyTags();
         var barcodeImg = tags.getBarcodeTag()
         addBarcode();
-
-        oDB = new OrderDBController();
-
-
         generate();
 
         oDB.checkSnapshot(funID);
@@ -42,6 +47,13 @@ $(document).ready(function() {
         $('#barcodeDiv').html(barcodeImg);
     }
 
+    function updateHeader(name) {
+
+        $('#headerQR').html(getHeader(true, 'Hello, ' + name));
+        // $('#headerQR').addClass('header');
+
+    }
+
 
     $(document).on('click', '.signOut', async function() {
         removeStorage();
@@ -53,7 +65,7 @@ $(document).ready(function() {
 
     $(document).on('click', '#btnDeliver', async function() {
         var id = $(this).data("id7");
-        oDB.changeOrderStatus(id, 'past');
+        oDB.changeOrderStatus(id, 'past', oDB.servingId);
         $('#barcodeDiv').toggle();
         $('#barcodeDiv').html(barcodeImg);
         generate();

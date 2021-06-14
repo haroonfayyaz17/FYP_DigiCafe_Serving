@@ -1,13 +1,13 @@
-function getHeader(page) {
+function getHeader(page, name = '') {
     var myvar;
     myvar = '<div class="header" id="header">' +
         '<div class="row">' +
         getLogo() + getTitle();
     if (page) {
-        myvar += '<i class="fas fa-sign-out-alt signOut" data-toggle="popover" data-trigger="hover" aria-hidden="true" data-placement="bottom" data-content="Sign Out"></i>';
+        myvar += '<span class="nameH">' + name + '</span><i class="fas fa-sign-out-alt signOut" data-toggle="popover" data-trigger="hover" aria-hidden="true" data-placement="bottom" data-content="Sign Out"></i>';
     }
     myvar += rest();
-    document.write(myvar)
+    return myvar;
 }
 
 function rest() {

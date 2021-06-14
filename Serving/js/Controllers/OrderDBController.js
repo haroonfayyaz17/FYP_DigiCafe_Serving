@@ -6,14 +6,22 @@ class OrderDBController {
         this.barcodes = [];
 
         this.loadingGif = '<img src="images/loader.gif" width="300" height="300" alt="loader"></img>';
-
+        this.servingId = '';
+        this.name = '';
     }
 
     getBarcodes() {
         return this.barcodes;
     }
 
-
+    async getPersonInfo(email) {
+        let personRef = await this.db.collection("Person").where('email', '==', email).get();
+        for (var doc of personRef.docs) {
+            var personDoc = doc.data();
+            this.name = personDoc['Name'];
+            this.servingId = doc.id;
+        }
+    }
 
     async fetchData(id) {
         var obj = this;
@@ -97,8 +105,11 @@ class OrderDBController {
         this.fetchData();
     }
 
-    async changeOrderStatus(id, oStatus) {
-        await this.db.collection("Orders").doc(id).update({ status: oStatus });
+    async changeOrderStatus(id, oStatus, servingId) {
+        await this.db.collection("Orders").doc(id).update({
+            'servedBy': servingId,
+            'status': oStatus
+        });
 
     }
 }
