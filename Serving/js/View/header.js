@@ -8,7 +8,6 @@ function getHeader(page, name = '') {
     }
     myvar += rest();
 
-    console.log(myvar);
     return myvar;
 }
 
