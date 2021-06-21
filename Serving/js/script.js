@@ -64,14 +64,14 @@ $(document).ready(async function() {
 
 
     $(document).on('click', '#btnDeliver', async function() {
-        var id = $(this).data("id7");
+        var id = $(this).data("orderid");
         oDB.changeOrderStatus(id, 'past', oDB.servingId);
         $('#barcodeDiv').toggle();
         $('#barcodeDiv').html(barcodeImg);
         generate();
         $('#content').html('');
         $('#buttonP').html('');
-        var cusID = $(this).data("id8");
+        var cusID = $(this).data("cusid");
         oDB.sendNotificationToUser(' Thanks for placing the order. Your order is collected from the counter. We hope you will enjoy this meal.', 'Order Delivered!', cusID);
     });
 

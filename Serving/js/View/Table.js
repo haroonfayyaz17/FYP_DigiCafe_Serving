@@ -41,7 +41,7 @@ class Table {
     }
 
     createTableButton(start, id, cusID, end) {
-        var button = start + "<button type='button'  id=\"btnDeliver\" data-id7='" + id + "' data-id8='" + cusID + "'  class='btn btn-success'>Deliver</button>" + end;
+        var button = start + "<button type='button'  id=\"btnDeliver\" data-orderid='" + id + "' data-cusid='" + cusID + "'  class='btn btn-success'>Deliver</button>" + end;
         var button2 = start + "<button type='button'  id=\"btnGenerate\"  class='btn btn-info'>Generate QR</button>" + end;
         return button2 + button;
     }
