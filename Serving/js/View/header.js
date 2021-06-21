@@ -7,6 +7,8 @@ function getHeader(page, name = '') {
         myvar += '<span class="nameH">' + name + '</span><i class="fas fa-sign-out-alt signOut" data-toggle="popover" data-trigger="hover" aria-hidden="true" data-placement="bottom" data-content="Sign Out"></i>';
     }
     myvar += rest();
+
+    console.log(myvar);
     return myvar;
 }
 
