@@ -1,5 +1,10 @@
 {
-    "dependencies": {},
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.14.0",
+        "bootstrap": "^3.4.1",
+        "firebase": "^8.6.8",
+        "jquery": "^3.5.1"
+    },
     "devDependencies": {
         "lite-server": "^2.6.1"
     },
