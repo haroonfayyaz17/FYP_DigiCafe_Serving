@@ -23,7 +23,15 @@ DigiCafe Serving Module is a web-based application designed to streamline the pr
 
 2. Navigate to the project directory:
    ```bash
-   cd FYP_DigiCafe_Serving
+   cd FYP_DigiCafe_Serving/Serving
+
+3. Install Dependencies:
+   ```bash
+   npm install
+
+4. Run the app:
+   ```bash
+   npm start
 
 ## Usage
 - Open the application on any modern browser.
