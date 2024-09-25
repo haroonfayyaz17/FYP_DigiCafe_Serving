@@ -1,7 +1,7 @@
 # FYP_DigiCafe_Serving
 
 ## Overview
-FYP_DigiCafe_Serving is a web-based application designed to streamline the process of serving customers in a digital cafe environment. This project focuses on creating a user-friendly interface where cafe staff can efficiently manage orders, update serving statuses, and provide real-time service updates to customers.
+DigiCafe Serving Module is a web-based application designed to streamline the process of serving customers in a digital cafe environment. This project focuses on creating a user-friendly interface where cafe staff can efficiently manage orders, update serving statuses, and provide real-time service updates to customers.
 
 ## Features
 - **Order Display**: Shows all pending orders for serving staff in an organized layout.
